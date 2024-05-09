@@ -4,3 +4,9 @@ async function getAllCourses() {
   const data = await response.json();
   console.log(data);
 }
+
+async function getOne(index) {
+  const response = await fetch(`http://localhost:3000/cursos/${index}`)
+  const data = await response.json();
+  console.log(data);
+}
