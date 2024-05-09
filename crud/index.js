@@ -4,7 +4,7 @@ const server = express();
 
 server.use(express.json());
 
-const cursos = ['FullStack', 'Desenvolvimento', 'Marketing'];
+const cursos = ['HTML e CSS', 'JavaScript', 'React'];
 
 // Retornar todos os cursos
 server.get('/cursos', (req, res) => {
@@ -40,9 +40,9 @@ server.put('/cursos/:index', (req, res) => {
 server.delete('/cursos/:index', (req, res) => {
   const { index } = req.params;
 
-  cursos.splice(index, 1);
+  deletado = cursos.splice(index, 1);
   
-  return res.json({message: 'O curso foi deletado'});
+  return res.json({message: `O curso ${deletado} foi deletado`, cursos: cursos});
 });
 
 server.listen(3000)
