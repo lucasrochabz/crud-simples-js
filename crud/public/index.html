@@ -4,19 +4,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
   <title>CRUD</title>
 </head>
 
 <body>
   <h1>Consumindo API</h1>
 
-  <button onclick="getAllCourses()">Listar cursos</button><br>
-  <div class="res1">Resultado</div><br>
-  <button onclick="getOne(0)">Pegar um curso</button><br>
-  <div class="res2">Resultado</div><br>
-  <button onclick="createCourse()">Criar curso</button><br><br>
-  <button onclick="uptadeCourse(0)">Atualizar</button><br><br>
-  <button onclick="deleteCourse(0)">Deletar</button><br><br>
+  <div class="requisicao">
+    <button onclick="getAllCourses()">Listar cursos</button>
+    <div class="res1">Resultado</div><br>
+  </div>
+
+  <div class="requisicao">
+    <button onclick="getOne(0)">Pegar um curso</button>
+    <div class="res2">Resultado</div><br>
+  </div>
+
+  <div class="requisicao">
+    <button onclick="createCourse()">Criar curso</button>
+    <div class="res3">Resultado</div><br>
+  </div>
+
+  <div class="requisicao">
+    <button onclick="uptadeCourse(0)">Atualizar</button><br><br>
+    <div class="res4">Resultado</div>
+  </div>
+
+  <div class="requisicao">
+    <button onclick="deleteCourse(0)">Deletar</button><br><br>
+    <div class="res5">Resultado</div>
+  </div>
 
   <script src="./script.js"></script>
 </body>

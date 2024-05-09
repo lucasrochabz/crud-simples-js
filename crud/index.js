@@ -25,8 +25,9 @@ server.post('/cursos', (req, res) => {
   const { name } = req.body;
 
   cursos.push(name);
+  const index = cursos.length - 1;
 
-  return res.json(cursos);
+  return res.json({ curso: cursos[index] });
 })
 
 // Atualizar um curso
