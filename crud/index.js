@@ -20,4 +20,32 @@ server.get('/cursos/:index', (req, res) => {
   return res.json(cursos[index])
 })
 
+// Criar um novo curso
+server.post('/cursos', (req, res) => {
+  const { name } = req.body;
+
+  cursos.push(name);
+
+  return res.json(cursos);
+})
+
+// Atualizar um curso
+server.put('/cursos/:index', (req, res) => {
+  const { index } = req.params;
+  const { name } = req.body;
+
+  cursos[index] = name;
+
+  return res.json(cursos);
+});
+
+server.delete('/cursos/:index', (req, res) => {
+  const { index } = req.params;
+  const name = cursos[index]
+
+  cursos.splice(index, 1);
+
+  return res.json({message: `O curso ${name} foi deletado`});
+});
+
 server.listen(3000)

@@ -10,3 +10,42 @@ async function getOne(index) {
   const data = await response.json();
   console.log(data);
 }
+
+async function createCourse() {
+  const name = 'Node.js'
+  const response = await fetch('http://localhost:3000/cursos', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name: name })
+  });
+
+  const data = await response.json();
+  console.log(data);
+}
+
+async function uptadeCourse(index) {
+  const name = 'Atualização';
+  const response = await fetch(`http://localhost:3000/cursos/${index}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name: name })
+  });
+
+  const data = await response.json()
+  console.log(data);
+}
+
+async function deleteCourse(index) {
+  const response = await fetch(`http://localhost:3000/cursos/${index}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+  const data = await response.json()
+  console.log(data);
+}
