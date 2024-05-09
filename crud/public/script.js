@@ -2,7 +2,7 @@ async function getAllCourses() {
   // const response = await fetch('http://127.0.0.1:5500/crud/public/cursos');
   const response = await fetch('http://localhost:3000/cursos');
   const data = await response.json();
-  
+
   const resDiv1 = document.querySelector('.res1');
   resDiv1.innerHTML = '';
   data.forEach(curso => {
@@ -47,7 +47,7 @@ async function createCourse() {
 }
 
 async function uptadeCourse(index) {
-  const name = 'Atualização';
+  const name = 'Atualizado';
   const response = await fetch(`http://localhost:3000/cursos/${index}`, {
     method: 'PUT',
     headers: {
@@ -55,8 +55,14 @@ async function uptadeCourse(index) {
     },
     body: JSON.stringify({ name: name })
   });
-
   const data = await response.json()
+
+  const resDiv4 = document.querySelector('.res4');
+  resDiv4.innerHTML = ''
+  const updateCurso = document.createElement('p');
+  updateCurso.textContent = name;
+  resDiv4.appendChild(updateCurso); 
+
   console.log(data);
 }
 
@@ -68,5 +74,12 @@ async function deleteCourse(index) {
     },
   });
   const data = await response.json()
+
+  const resDiv5 = document.querySelector('.res5');
+  resDiv5.innerHTML = '';
+  const cursoElement = document.createElement('p');
+  cursoElement.textContent = data.message;
+  resDiv5.appendChild(cursoElement);
+
   console.log(data);
 }
