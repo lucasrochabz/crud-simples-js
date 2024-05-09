@@ -2,6 +2,13 @@ async function getAllCourses() {
   // const response = await fetch('http://127.0.0.1:5500/crud/public/cursos');
   const response = await fetch('http://localhost:3000/cursos');
   const data = await response.json();
+  const resDiv = document.querySelector('.res');
+  resDiv.innerHTML = '';
+  data.forEach(curso => {
+    const cursoElement = document.createElement('p');
+    cursoElement.textContent = curso;
+    resDiv.appendChild(cursoElement);
+  })
   console.log(data);
 }
 
